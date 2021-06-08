@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import styles from "../styles/Index.module.css";
 
@@ -20,17 +20,26 @@ export default function Points() {
 
   const points: number = Math.round(devs * pointsPerDev * daysOffFactor);
 
+  // window.addEventListener('scroll', () => console.log(window.scrollY))
+
+  useEffect(() => {
+    window.scroll(0,1000)
+  })
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>About</title>
+        <title>Sprint points calculator</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
+        <div className={styles.page}>
         <h1 className={styles.title}>Sprint points calculator</h1>
-        <div className={styles.grid}>
-          <div className={styles.card}>
+        <button type="button" onClick={() => {alert('hello!')}}>Let's start</button>
+        </div>
+
+          <div className={styles.page}>
             <label>How many devs</label>
             <input
               type="text"
@@ -38,9 +47,10 @@ export default function Points() {
               value={devs}
               onChange={onChangeDevs}
             ></input>
+            <button type="button" onClick={() => {alert('hello!')}}>Next -></button>
           </div>
 
-          <div className={styles.card}>
+          <div className={styles.page}>
             <label>How many days off</label>
             <input
               type="text"
@@ -50,7 +60,7 @@ export default function Points() {
             ></input>
           </div>
 
-          <div className={styles.card}>
+          <div className={styles.page}>
             <label>Average points</label>
             <input
               type="text"
@@ -59,12 +69,13 @@ export default function Points() {
               onChange={onChangeAveragePoints}
             ></input>
           </div>
-        </div>
 
+          <div className={styles.page}>
         <p className={styles.description}>
           {points > 0 && `You can do ${points} bloody points, move on!`}
         </p>
+        </div>
       </main>
-    </div>
+      </div>
   );
 }
