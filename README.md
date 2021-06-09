@@ -26,6 +26,10 @@ White block with content and background around
 
 For average points per sprint should pre populate numbers of devs and give possibility to edit
 
+Add emoji as favicon
+
+Add footer with emoji
+
 Releases plan: 
 0.1 current
 0.2 all the questions, simple design and weight days off
